@@ -1,0 +1,11 @@
+package died.guia06;
+
+import org.junit.Test;
+
+public class Prueba {
+	
+	@Test
+	void contextLoads() {
+	}
+
+}
