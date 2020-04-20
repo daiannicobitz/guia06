@@ -1,0 +1,37 @@
+package died.guia06;
+
+import java.util.List;
+
+
+public class Alumno {
+
+	private String nombre;
+	private Integer nroLibreta;
+	private List<Curso> cursando;
+	private List<Curso> aprobados;
+
+	public int creditosObtenidos() {
+		int cantCreditos=0;
+		for(int i=0; i<aprobados.size();i++)
+			cantCreditos=cantCreditos+aprobados.get(i).getCreditos();
+		return cantCreditos;
+	}
+
+	public void aprobar(Curso c) {
+		List<Curso> listaNueva = null;
+		for(int i=0; i<cursando.size();i++) {
+			if(!c.equals(cursando.get(i))) { listaNueva.add(cursando.get(i));}
+		}
+		cursando=listaNueva;
+		aprobados.add(c);
+	}
+
+	public void inscripcionAceptada(Curso c) {
+		cursando.add(c);
+	}
+	
+	public boolean equals(Object o){
+		return (o instanceof Alumno &&
+		((Alumno)o).nroLibreta==this.nroLibreta);
+	}
+}
