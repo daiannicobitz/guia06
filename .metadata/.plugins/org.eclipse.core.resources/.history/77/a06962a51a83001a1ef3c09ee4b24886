@@ -1,0 +1,92 @@
+package died.guia06;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class Alumno {
+
+	private String nombre;
+	private Integer nroLibreta;
+	private List<Curso> cursando;
+	private List<Curso> aprobados;
+
+	
+	
+	public Alumno(String nombre, Integer nroLibreta) {
+		super();
+		this.nombre = nombre;
+		this.nroLibreta = nroLibreta;
+		this.cursando = new ArrayList<Curso>();
+		this.aprobados = new ArrayList<Curso>();
+	}
+
+
+	public int creditosObtenidos() {
+		int cantCreditos=0;
+		for(int i=0; i<aprobados.size();i++)
+			cantCreditos=cantCreditos+aprobados.get(i).getCreditos();
+		return cantCreditos;
+	}
+
+
+	public void aprobar(Curso c) {
+		List<Curso> listaNueva = new ArrayList<Curso>();
+		for(int i=0; i<cursando.size();i++) {
+			if(!c.equals(cursando.get(i))) { listaNueva.add(cursando.get(i));}
+		}
+		cursando=listaNueva;
+		aprobados.add(c);
+	}
+
+	public void inscripcionAceptada(Curso c) {
+		cursando.add(c);
+	}
+	
+	public boolean equals(Object o){
+		return (o instanceof Alumno &&
+		((Alumno)o).nroLibreta==this.nroLibreta);
+	}
+
+
+	public String getNombre() {
+		return this.nombre;
+	}
+
+
+	public List<Curso> getCursando() {
+		return cursando;
+	}
+
+
+	public void setCursando(Curso c) {
+		this.cursando.add(c);
+	}
+
+
+	public List<Curso> getAprobados() {
+		return aprobados;
+	}
+
+
+
+	public void setAprobados(Curso c) {
+		this.aprobados.add(c);
+	}
+
+
+	public Integer getNroLibreta() {
+		return nroLibreta;
+	}
+
+
+	public int cantidadCursosCicloL(Integer cicloLectivo) {
+		int cant=0;
+		for(int i=0;i<this.cursando.size();i++) {
+			if(cursando.get(i))
+		}
+		return 0;
+	}
+	
+	
+}
