@@ -1,0 +1,21 @@
+package died.guia06;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class CursoTest {
+
+	@Test
+	void testInscribir() {
+		Alumno alumno=new Alumno("Juan",1);
+		
+		assertTrue(condition);
+	}
+
+	@Test
+	void testImprimirInscriptos() {
+		fail("Not yet implemented");
+	}
+
+}

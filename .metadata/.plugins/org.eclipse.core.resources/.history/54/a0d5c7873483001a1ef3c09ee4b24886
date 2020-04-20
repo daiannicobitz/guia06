@@ -1,0 +1,19 @@
+package died.guia06;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class CursoTest {
+
+	@Test
+	void testInscribir() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testImprimirInscriptos() {
+		fail("Not yet implemented");
+	}
+
+}
