@@ -1,0 +1,157 @@
+package died.guia06;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import died.guia06.util.Registro;
+
+/**
+ * Clase que representa un curso. Un curso se identifica por su ID y por su nombre y ciclo lectivo.
+ * Un curso guarda una lista de los inscriptos actuales que tienen.
+ * Un curso, al aprobarlo, otorga una cantidad de creditos definidas en el curso.
+ * Un curso requiere que para inscribirnos tengamos al menos la cantidad de creditos requeridas, y que haya cupo disponible
+ * @author marti
+ *
+ */
+public class Curso {
+
+	private Integer id;
+	private String nombre;
+	private Integer cicloLectivo;
+	private Integer cupo; 
+	private List<Alumno> inscriptos;
+	private Integer creditos;
+	private Integer creditosRequeridos;
+	
+	private Registro log;
+	
+	public Curso() {
+		super();
+		this.inscriptos = new ArrayList<Alumno>();
+		this.log = new Registro();
+	}
+	
+
+	/**
+	 * Este método, verifica si el alumno se puede inscribir y si es así lo agrega al curso,
+	 * agrega el curso a la lista de cursos en los que está inscripto el alumno y retorna verdadero.
+	 * Caso contrario retorna falso y no agrega el alumno a la lista de inscriptos ni el curso a la lista
+	 * de cursos en los que el alumno está inscripto.
+	 * 
+	 * Para poder inscribirse un alumno debe
+	 * 		a) tener como minimo los creditos necesarios
+	 *      b) tener cupo disponibles
+	 *      c) puede estar inscripto en simultáneo a no más de 3 cursos del mismo ciclo lectivo.
+	 * @param a
+	 * @return
+	 */
+	public Boolean inscribir(Alumno a) {
+		boolean retorno=false;
+		
+		if(this.cupo>0)
+			if(a.creditosObtenidos()>=this.creditosRequeridos) 			
+				if(a.cantidadCursosCicloL(this.cicloLectivo)<3) retorno=true;
+			
+		if(retorno) {
+			this.setInscriptos(a);
+			a.setCursando(this);
+			this.cupo=this.cupo-1;
+		}else {System.out.println(a.getNombre()+", no es posible que te inscribas al curso "+this.nombre+". Por favor revisa los requisitos minimos.");}
+		
+		try {
+			log.registrar(this, "inscribir ",a.toString());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return retorno;
+	}
+	
+	
+	/**
+	 * imprime los inscriptos en orden alfabetico
+	 */
+	public void imprimirInscriptos() {
+		
+		for(int i=0; i<this.inscriptos.size();i++)
+			System.out.print(this.inscriptos.get(i).getNombre());
+		
+		try {
+			log.registrar(this, "imprimir listado",this.inscriptos.size()+ " registros ");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+
+	public Integer getCreditos() {
+		return this.creditos;
+	}
+	
+	public boolean equals(Object o){
+		return (o instanceof Curso &&
+		((Curso)o).id==this.id);
+	}
+
+	private Integer getId() {
+		return this.id;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+	public void setCreditos(Integer creditos) {
+		this.creditos = creditos;
+	}
+	
+	public void setCreditosRequeridos(Integer creditosRequeridos) {
+		this.creditosRequeridos = creditosRequeridos;
+	}
+
+	public Integer getCicloLectivo() {
+		return cicloLectivo;
+	}
+
+
+	public void setInscriptos(Alumno a) {
+		ComparaAlumnoAlfabetico comparador=new ComparaAlumnoAlfabetico();
+		boolean bandera=true;
+		
+		if(this.inscriptos.size()>0) {
+			for(int i=0;i<this.inscriptos.size() && bandera;i++) {
+				if(comparador.compare(this.inscriptos.get(i), a)>0) {
+					this.inscriptos.add(i, a);
+					bandera=false;}
+			}}else if(this.inscriptos==null || bandera) {
+					this.inscriptos.add(a);}
+
+	}
+
+
+	public void setCupo(int cupo) {	
+		this.cupo=cupo;
+	}
+
+
+	 void setCicloLectivo(int cicloLectivo) {
+		this.cicloLectivo=cicloLectivo;
+	}
+
+
+}

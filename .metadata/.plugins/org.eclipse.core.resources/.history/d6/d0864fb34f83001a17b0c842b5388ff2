@@ -1,0 +1,57 @@
+package died.guia06;
+
+import java.util.List;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		Alumno alumno1=new Alumno("Luciano",123);
+		Alumno alumno2=new Alumno("Mariana",456);
+		Alumno alumno3=new Alumno("Agustin",333);
+		
+		Curso c1=new Curso();
+		c1.setNombre("Fisica II");
+		c1.setCreditos(2);
+		c1.setCreditosRequeridos(0);
+		c1.setCupo(30);
+		c1.setCicloLectivo(2);
+		
+		Curso c2=new Curso();
+		c2.setNombre("Gestion de Datos");
+		c2.setCreditos(3);
+		c2.setCreditosRequeridos(3);
+		c2.setCicloLectivo(2);
+		c2.setCupo(2);
+		
+		Curso c3=new Curso();
+		c3.setNombre("Diseño de Sistemas");
+		c3.setCreditos(4);
+		c3.setCreditosRequeridos(2);
+		c3.setCicloLectivo(2);
+		c3.setCupo(1);
+		
+		Curso c4=new Curso();
+		c4.setNombre("Analisis de Sistemas");
+		c4.setCreditos(9);
+		c4.setCreditosRequeridos(5);
+		c4.setCicloLectivo(2);
+		c4.setCupo(0);
+		
+		c1.inscribir(alumno1);
+		alumno1.aprobar(c1);
+		c3.inscribir(alumno1);
+		alumno1.aprobar(c3);
+		c2.inscribir(alumno1);
+		alumno1.aprobar(c2);
+		c4.inscribir(alumno1);
+		
+		c1.inscribir(alumno2);
+		c1.inscribir(alumno3);
+		
+		System.out.println("La cantidad de creditos obtenidos por "+alumno1.getNombre()+" es: "+alumno1.creditosObtenidos());
+		
+		
+		
+	}
+}

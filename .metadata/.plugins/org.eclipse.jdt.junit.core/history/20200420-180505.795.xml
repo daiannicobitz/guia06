@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AlumnoTest" project="died-guia06" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="died.guia06.AlumnoTest" time="0.106" displayname="AlumnoTest" uniqueid="[engine:junit-jupiter]/[class:died.guia06.AlumnoTest]">
+    <testcase name="testCreditosObtenidos" classname="died.guia06.AlumnoTest" time="0.061" displayname="testCreditosObtenidos()" uniqueid="[engine:junit-jupiter]/[class:died.guia06.AlumnoTest]/[method:testCreditosObtenidos()]"/>
+    <testcase name="testAprobar" classname="died.guia06.AlumnoTest" time="0.005" displayname="testAprobar()" uniqueid="[engine:junit-jupiter]/[class:died.guia06.AlumnoTest]/[method:testAprobar()]"/>
+    <testcase name="testInscripcionAceptada" classname="died.guia06.AlumnoTest" time="0.04" displayname="testInscripcionAceptada()" uniqueid="[engine:junit-jupiter]/[class:died.guia06.AlumnoTest]/[method:testInscripcionAceptada()]"/>
+  </testsuite>
+</testrun>

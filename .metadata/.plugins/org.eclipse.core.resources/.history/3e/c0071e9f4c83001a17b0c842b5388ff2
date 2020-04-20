@@ -1,0 +1,38 @@
+package died.guia06;
+
+import java.util.List;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		Alumno alumno1=new Alumno("Luciano",123);
+		Alumno alumno2=new Alumno("Mariana",456);
+		
+		Curso c1=new Curso();
+		c1.setCreditos(2);
+		c1.setCreditosRequeridos(3);
+		c1.setCupo(30);
+		c1.setCicloLectivo(2);
+		
+		Curso c2=new Curso();
+		c2.setCreditos(3);
+		c2.setCreditosRequeridos(0);
+		c2.setCicloLectivo(2);
+		c1.setCupo(2);
+		
+		Curso c3=new Curso();
+		c3.setCreditos(4);
+		c3.setCreditosRequeridos(5);
+		c3.setCicloLectivo(2);
+		c1.setCupo(0);
+		
+		Curso c3=new Curso();
+		c3.setCreditos(4);
+		c3.setCreditosRequeridos(5);
+		c3.setCicloLectivo(2);
+		c1.setCupo(0);
+		
+		
+	}
+}
