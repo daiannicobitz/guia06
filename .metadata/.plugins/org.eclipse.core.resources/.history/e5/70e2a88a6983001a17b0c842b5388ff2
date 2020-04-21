@@ -1,0 +1,10 @@
+package died.guia06;
+
+import died.guia06.util.Registro;
+
+public class RegistroAuditoriaException extends Registro {
+	
+	
+	
+	
+}
