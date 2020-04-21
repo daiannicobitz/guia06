@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="CursoTest" project="died-guia06" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="died.guia06.CursoTest" time="0.078" displayname="CursoTest" uniqueid="[engine:junit-jupiter]/[class:died.guia06.CursoTest]">
+    <testcase name="testInscribirAlumno" classname="died.guia06.CursoTest" time="0.053" displayname="testInscribirAlumno()" uniqueid="[engine:junit-jupiter]/[class:died.guia06.CursoTest]/[method:testInscribirAlumno()]"/>
+    <testcase name="testInscribir" classname="died.guia06.CursoTest" time="0.007" displayname="testInscribir()" uniqueid="[engine:junit-jupiter]/[class:died.guia06.CursoTest]/[method:testInscribir()]"/>
+    <testcase name="testImprimirInscriptos" classname="died.guia06.CursoTest" time="0.018" displayname="testImprimirInscriptos()" uniqueid="[engine:junit-jupiter]/[class:died.guia06.CursoTest]/[method:testImprimirInscriptos()]"/>
+  </testsuite>
+</testrun>
